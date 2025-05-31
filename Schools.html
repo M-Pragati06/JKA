@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKA Satara - Schools</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        .navbar {
+            background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%) !important;
+        }
+
+        .school-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Filter Tabs Styling */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+
+        .filter-tab {
+            padding: 12px 25px;
+            background: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-tab.active {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(255, 54, 7, 0.3);
+        }
+
+        .filter-tab:not(.active):hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* School Card Improvements */
+        .school-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 400px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border-left: 0;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .school-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient);
+            transition: all 0.4s ease;
+        }
+
+        .school-card:hover::before {
+            height: 100%;
+        }
+
+        .school-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .school-header {
+            padding: 22px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 40%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+        }
+
+        .school-card:hover .school-header::after {
+            right: 120%;
+        }
+
+        .school-header h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--white);
+            margin: 0;
+            font-size: 1.35rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .school-body {
+            padding: 25px;
+            background: #fff;
+        }
+
+        .school-detail {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .school-card:hover .school-detail {
+            border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .school-detail:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .school-detail h5 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+        }
+
+        .school-detail h5 i {
+            margin-right: 12px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .school-card:hover .school-detail h5 i {
+            transform: scale(1.1);
+            color: var(--primary-dark);
+        }
+
+        .school-detail p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            margin: 0;
+            padding-left: 32px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Add subtle animation to cards when filtering */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .school-card[style*="display: block"] {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+     <!-- Header -->
+<nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#" style="text-decoration: none; display: inline-flex; align-items: center;">
+            <img src="images/logo.png" alt="JKA SATARA" style="height: 60px; width: auto;">
+            <div class="logo-text" style="margin-left: 12px; line-height: 1.2;">
+                <div class="logo" style="font-size: 18px; font-weight: 700; color: #000;">JKA SATARA</div>
+                <div style="font-size: 10px; font-weight: 500; color: #333;">公益社団法人</div>
+                <div style="font-size: 14px; font-weight: 600; color: #666;">日本空手協会</div>
+            </div>
+        </a>
+        <button class="navbar-toggler" style="color: #000;" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="branchesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
+                    <ul class="dropdown-menu" aria-labelledby="branchesDropdown">
+                        <li><a class="dropdown-item" href="branches.html?branch=satara">Satara</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=karad">Karad</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=nanded">Nanded</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=dhule">Dhule</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=belagavi">Belagavi</a></li>
+                        <li><a class="dropdown-item bg-warning" href="Schools.html">Schools</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#news_and_events">News and Events</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Admission</a>
+                    <ul class="dropdown-menu" aria-labelledby="admissionDropdown">
+                        <li><a class="dropdown-item" href="admission.html">New Admission Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">National Camp Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Exam Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Local Camp Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Zonal Tournament Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Dojo Affiliation Form</a></li>
+                        <li class="bg-warning"><a class="dropdown-item" href="images/syllabus.pdf" target="_blank">Syllabus</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- School List Section -->
+    <section class="school-section">
+        <div class="container-fluid">
+            <div class="section-title">
+                <h2>Our Affiliated Schools</h2>
+                <p>List of schools associated with JKA Satara</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="english">English Medium</button>
+                <button class="filter-tab" data-filter="marathi">Marathi Medium</button>
+            </div>
+
+            <div class="row">
+                <!-- School 1 -->
+                <div class="col-xl-3 col-md-6" data-medium="english">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Satara Public School</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>123 Main Road, Satara - 415002</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Rajesh Patil (3rd Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School 2 -->
+                <div class="col-xl-3 col-md-6" data-medium="english">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Karad High School</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>456 College Road, Karad - 415110</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Mahesh Kulkarni (4th Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 97654 32109</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School 3 -->
+                <div class="col-xl-3 col-md-6 " data-medium="marathi">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Nanded International School</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>789 University Road, Nanded - 431602</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Sanjay Reddy (4th Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 96543 21098</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School 4 -->
+                <div class="col-xl-3 col-md-6" data-medium="marathi">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Dhule Sports Academy</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>321 Sports Complex, Dhule - 424001</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Anil Patil (3rd Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 95432 10987</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School 5 -->
+                <div class="col-xl-3 col-md-6 " data-medium="marathi">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Belagavi Central School</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>654 City Center, Belagavi - 590001</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Prakash Naik (4th Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 94321 09876</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- School 6 -->
+                <div class="col-xl-3 col-md-6" data-medium="marathi">
+                    <div class="school-card">
+                        <div class="school-header">
+                            <h3>Satara Sports School</h3>
+                        </div>
+                        <div class="school-body">
+                            <div class="school-detail">
+                                <h5><i class="fas fa-map-marker-alt"></i> Address</h5>
+                                <p>987 Stadium Road, Satara - 415002</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-user-tie"></i> Instructor</h5>
+                                <p>Sensei Priya Deshmukh (2nd Dan)</p>
+                            </div>
+                            <div class="school-detail">
+                                <h5><i class="fas fa-phone-alt"></i> Contact</h5>
+                                <p>+91 87654 32109</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>About Us</h3>
+                        <p>JKA Satara has been providing authentic Shotokan Karate training since 2001. As an official
+                            branch of the Japan Karate Association, we maintain the highest standards of instruction.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/virendra.pardeshi.96?mibextid=ZbWKwL" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://wa.me/919822026371" target="_blank" rel="noopener noreferrer"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/virendra.pardeshi?igsh=MTBmNzduaGR3eGNiag=="
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/virendra-pardeshi-1596481ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="branches.html">Branches</a></li>
+                            <li><a href="index.html#gallery">Gallery</a></li>
+                            <li><a href="index.html#news_and_events">News & Events</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <div class="footer-col">
+                        <h3>Main Branches</h3>
+                        <ul class="footer-links">
+                            <li><a href="branches.html?branch=satara">Satara</a></li>
+                            <li><a href="branches.html?branch=karad">Karad</a></li>
+                            <li><a href="branches.html?branch=nanded">Nanded</a></li>
+                            <li><a href="branches.html?branch=dhule">Dhule</a></li>
+                            <li><a href="branches.html?branch=belagavi">Belagavi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-col">
+                        <h3>Contact Info</h3>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i>Japan Karate Association Satara<br>
+                                Dojo Main Branch<br>
+                                313/6, Plot no: 3, 97, Basappa Peth<br>
+                                New Radhika Road<br>
+                                Satara - 415002<br>
+                                Maharashtra, India</li>
+                            <li><i class="fas fa-phone-alt"></i><a href="tel:+919822026371">+91 98220 26371</a></li>
+                            <li><i class="fas fa-envelope"></i><a
+                                    href="mailto:virendrapardeshi999@gmail.com">virendrapardeshi999@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2023 JKA Satara. All Rights Reserved.</p>
+                        <p>Designed by : <a href="http://jijausoftwares.in/" target="_blank">Jijau Softwares</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            
+
+            // Back to Top Button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // School Filter Functionality - Fixed Version
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const schoolContainers = document.querySelectorAll('[data-medium]'); // Select the column containers
+
+            // Show English medium schools by default
+            schoolContainers.forEach(container => {
+                if (container.getAttribute('data-medium') !== 'english') {
+                    container.style.display = 'none';
+                }
+            });
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // Update active tab
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // Filter schools
+                    schoolContainers.forEach(container => {
+                        const medium = container.getAttribute('data-medium');
+
+                        if (filter === medium) {
+                            container.style.display = 'block';
+                            container.classList.add('animate__animated', 'animate__fadeIn');
+                        } else {
+                            container.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

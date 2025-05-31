@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKA Satara - Branches</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Color Variables */
+        :root {
+            --primary-color: #1a2a6c;
+            /* Deep blue */
+            --secondary-color: #b21f1f;
+            /* Rich red */
+            --accent-color: #fdbb2d;
+            /* Gold */
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --gradient-primary: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 100%);
+            --gradient-secondary: linear-gradient(135deg, #b21f1f 0%, #fdbb2d 100%);
+        }
+
+        body {
+            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+        }
+
+        .navbar {
+            background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%) !important;
+        }
+
+        /* Branch Section Styling */
+        .branch-section {
+            padding: 80px 0 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--light-text);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Branch Card Styling */
+        .branch-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            position: relative;
+            z-index: 1;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .branch-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .branch-card:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .branch-header {
+            padding: 30px;
+            color: white;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branch-header:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.15);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+
+        .branch-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: goldenrod;
+            margin-bottom: 8px;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .branch-header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            font-weight: 300;
+            color: aquamarine !important;
+        }
+
+        .branch-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.2;
+        }
+
+        .branch-icon i {
+            font-size: 6rem;
+            color: white;
+        }
+
+        /* Branch Details Styling */
+        .branch-details {
+            padding: 35px;
+        }
+
+        .detail-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateX(5px);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-item h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-item h5 i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            background: rgba(178, 31, 31, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-item p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+            padding-left: 52px;
+        }
+
+        /* Sub-Branches Styling */
+        .sub-branches {
+            margin-top: 60px;
+            /* background: white; */
+            padding: 40px;
+            border-radius: 12px;
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.05); */
+        }
+
+        .sub-branches h4 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .sub-branches h4:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .sub-branches h4 i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        /* Sub-Branch Cards */
+        .sub-branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .sub-branch-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sub-branch-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .sub-branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .sub-branch-card-header {
+            padding: 25px;
+            background: var(--light-bg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .sub-branch-card-header h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            color: #b21f1f;
+            margin: 0;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .sub-branch-card-body {
+            padding: 25px;
+        }
+
+        .sub-branch-detail {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sub-branch-detail:hover {
+            transform: translateX(5px);
+        }
+
+        .sub-branch-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-branch-detail h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-branch-detail h6 i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            background: rgba(178, 31, 31, 0.1);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sub-branch-detail p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            font-size: 1rem;
+            margin: 0;
+            padding-left: 45px;
+            line-height: 1.6;
+        }
+
+        /* No Sub-Branches Styling */
+        .no-sub-branches {
+            text-align: center;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 2px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .no-sub-branches i {
+            font-size: 4rem;
+            color: rgba(178, 31, 31, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .no-sub-branches h5 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .no-sub-branches p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .branch-section {
+                padding: 100px 0 60px;
+            }
+
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .branch-section {
+                padding: 90px 0 50px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1.05rem;
+            }
+
+            .branch-header {
+                padding: 25px;
+                text-align: center;
+            }
+
+            .branch-icon {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin: 20px auto 0;
+                opacity: 0.3;
+            }
+
+            .branch-icon i {
+                font-size: 4rem;
+            }
+
+            .branch-details {
+                padding: 25px;
+            }
+
+            .detail-item p {
+                padding-left: 0;
+            }
+
+            .sub-branches {
+                padding: 30px;
+            }
+
+            .sub-branch-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .branch-section {
+                padding: 80px 0 40px;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .branch-card {
+                margin-bottom: 30px;
+            }
+
+            .sub-branches {
+                padding: 25px;
+            }
+
+            .no-sub-branches {
+                padding: 40px 25px;
+            }
+        }
+
+        /* Animation Effects */
+        .branch-card {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .detail-item {
+            animation: fadeInLeft 0.8s ease-out both;
+        }
+
+        .detail-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .detail-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .detail-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .sub-branches {
+            animation: fadeIn 1s ease-out both;
+        }
+
+        .sub-branch-card {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .sub-branch-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .sub-branch-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+     <!-- Header -->
+<nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#" style="text-decoration: none; display: inline-flex; align-items: center;">
+            <img src="images/logo.png" alt="JKA SATARA" style="height: 60px; width: auto;">
+            <div class="logo-text" style="margin-left: 12px; line-height: 1.2;">
+                <div class="logo" style="font-size: 18px; font-weight: 700; color: #000;">JKA SATARA</div>
+                <div style="font-size: 10px; font-weight: 500; color: #333;">公益社団法人</div>
+                <div style="font-size: 14px; font-weight: 600; color: #666;">日本空手協会</div>
+            </div>
+        </a>
+        <button class="navbar-toggler" style="color: #000;" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="branchesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
+                    <ul class="dropdown-menu" aria-labelledby="branchesDropdown">
+                        <li><a class="dropdown-item" href="branches.html?branch=satara">Satara</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=karad">Karad</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=nanded">Nanded</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=dhule">Dhule</a></li>
+                        <li><a class="dropdown-item" href="branches.html?branch=belagavi">Belagavi</a></li>
+                        <li><a class="dropdown-item bg-warning" href="Schools.html">Schools</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#news_and_events">News and Events</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Admission</a>
+                    <ul class="dropdown-menu" aria-labelledby="admissionDropdown">
+                        <li><a class="dropdown-item" href="admission.html">New Admission Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">National Camp Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Exam Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Local Camp Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Zonal Tournament Form</a></li>
+                        <li><a class="dropdown-item" href="coming-soon.html">Dojo Affiliation Form</a></li>
+                        <li class="bg-warning"><a class="dropdown-item" href="images/syllabus.pdf" target="_blank">Syllabus</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Branch Content Section -->
+    <section class="section branch-section" id="branch-content">
+        <div class="container-fluid">
+            <div class="section-title">
+                <h2 id="branch-title">Our Branches</h2>
+                <p id="branch-subtitle">Explore our network of dojos across the region</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <!-- Branch Overview Card -->
+                    <div class="branch-card card mb-5">
+                        <div class="card-body">
+                            <div class="branch-header d-flex align-items-center">
+                                <div>
+                                    <h3 class="mb-1" id="branch-name">Select a Branch</h3>
+                                    <p class="text-muted mb-0" id="branch-location"></p>
+                                </div>
+                            </div>
+
+                            <div class="branch-details">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="detail-item">
+                                            <h5><i class="fas fa-user-tie me-2"></i> Chief Instructor</h5>
+                                            <p id="chief-instructor">-</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h5><i class="fas fa-phone-alt me-2"></i> Contact</h5>
+                                            <p id="branch-contact">-</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="detail-item">
+                                            <h5><i class="fas fa-clock me-2"></i> Training Hours</h5>
+                                            <p id="training-hours">-</p>
+                                        </div>
+                                        <div class="detail-item">
+                                            <h5><i class="fas fa-calendar-alt me-2"></i> Established</h5>
+                                            <p id="established-year">-</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub-Branches Section -->
+                    <div class="sub-branches">
+                        <h4 class="mb-4"><i class="fas fa-code-branch me-2"></i> Sub-Branches</h4>
+                        <div id="sub-branches-container">
+                            <div class="no-sub-branches">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <h5>No Sub-Branch added</h5>
+                                <!-- <p>add  a main branch to view its sub-branches</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>About Us</h3>
+                        <p>JKA Satara has been providing authentic Shotokan Karate training since 2001. As an official
+                            branch of the Japan Karate Association, we maintain the highest standards of instruction.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/virendra.pardeshi.96?mibextid=ZbWKwL" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://wa.me/919822026371" target="_blank" rel="noopener noreferrer"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/virendra.pardeshi?igsh=MTBmNzduaGR3eGNiag=="
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/virendra-pardeshi-1596481ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="branches.html">Branches</a></li>
+                            <li><a href="index.html#gallery">Gallery</a></li>
+                            <li><a href="index.html#news_and_events">News & Events</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <div class="footer-col">
+                        <h3>Main Branches</h3>
+                        <ul class="footer-links">
+                            <li><a href="branches.html?branch=satara">Satara</a></li>
+                            <li><a href="branches.html?branch=karad">karad</a></li>
+                            <li><a href="branches.html?branch=nanded">Nanded</a></li>
+                            <li><a href="branches.html?branch=dhule">Dhule</a></li>
+                            <li><a href="branches.html?branch=belagavi">Belagavi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-col">
+                        <h3>Contact Info</h3>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i>Japan Karate Association Satara<br>
+                                Dojo Main Branch<br>
+                                313/6, Plot no: 3, 97, Basappa Peth<br>
+                                New Radhika Road<br>
+                                Satara - 415002<br>
+                                Maharashtra, India</li>
+                            <li><i class="fas fa-phone-alt"></i><a href="tel:+919822026371">+91 98220 26371</a></li>
+                            <li><i class="fas fa-envelope"></i><a
+                                    href="mailto:virendrapardeshi999@gmail.com">virendrapardeshi999@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2025 Japan Karate Association Satara. All Rights Reserved.</p>
+                        <p>Designed by : <a href="http://jijausoftwares.in/" target="_blank">Jijau Softwares</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Branch data
+        const branchData = {
+            satara: {
+                name: "Satara Branch",
+                location: "Satara, Maharashtra",
+                chiefInstructor: "Sensei Virendra Pardeshi",
+                contact: "+91 98220 26371, +91  86055 09975",
+                trainingHours: "Morning: 6:00 AM - 7:00 AM, 7:00 AM - 8:00 AM, 8:00 AM - 9:00 AM,<br>Evening: 4:00 PM - 5:00 PM, 5:00 PM - 6:00 PM, 6:00 PM - 7:00 PM,<br> 7:00 PM - 8:00 PM, 8:00 PM - 9:00 PM",
+                established: "2001",
+                address: "313/6, Plot no: 3, 97, Basappa Peth, New Radhika Road, Satara - 415002",
+                subBranches: [
+                    { name: "H. Q. Dojo", instructor: "Sensei Virendra Pardeshi", contact: "+91 98220 26371", address: "Japan Karate Association Satara Dojo Main Branch 313/6, Plot no: 3, 97, Basappa Peth New Radhika Road Satara - 415002 Maharashtra, India" },
+                    { name: "Shahu Stadium Dojo", instructor: "Sensei Virendra Pardeshi", contact: "+91 98220 26371", address: "Shahu Stadium Satara" },
+                    { name: "Pramila Dojo", instructor: "Sensei Nitesh Bhingardeve", contact: "+91 98814 44883", address: "Pramila Mangal Karyalay, Karanje Turf Satara, Satara, Maharashtra 415002, India" },
+                    { name: "Cooper Dojo", instructor: "Sensei Virendra Pardeshi , Aditi Pardeshi , Rahul Jadhav , Sheshkumar ", contact: "+91 98220 26371", address: "Cooper Colony, Sanskrutik Bhavan" },
+                    { name: "Tamjainagar Dojo", instructor: "Sensei Harsh Pujari", contact: "+91 98220 26371", address: "Satara" },
+                    { name: "Gurave Dojo", instructor: "Sensei Janhvi Gurave", contact: "+91 98220 26371", address: "Satara" }
+                ]
+            },
+            karad: {
+                name: "Karad Branch",
+                location: "Karad, Maharashtra",
+                chiefInstructor: "Sensei Mahesh Kulkarni (4th Dan Black Belt)",
+                contact: "+91 97654 32109",
+                trainingHours: "Morning: 6:00 AM - 7:00 AM, 7:00 AM - 8:00 AM, 8:00 AM - 9:00 AM,<br>Evening: 4:00 PM - 5:00 PM, 5:00 PM - 6:00 PM, 6:00 PM - 7:00 PM,<br> 7:00 PM - 8:00 PM, 8:00 PM - 9:00 PM",
+                established: "2005",
+                address: "Karad Main Dojo Address",
+                // subBranches: [
+                //     { name: "Karad Central Dojo", instructor: "Sensei Deepak Pawar (2nd Dan)", contact: "+91 98765 43211", address: "Karad Central" },
+                //     { name: "Karad West Dojo", instructor: "Sensei Neha Sharma (1st Dan)", contact: "+91 87654 32112", address: "Karad West" }
+                // ]
+            },
+            nanded: {
+                name: "Nanded Branch",
+                location: "Nanded, Maharashtra",
+                chiefInstructor: "Sensei Sanjay Reddy (4th Dan Black Belt)",
+                contact: "+91 96543 21098",
+                trainingHours: "Morning: 6:00 AM - 7:00 AM, 7:00 AM - 8:00 AM, 8:00 AM - 9:00 AM,<br>Evening: 4:00 PM - 5:00 PM, 5:00 PM - 6:00 PM, 6:00 PM - 7:00 PM,<br> 7:00 PM - 8:00 PM, 8:00 PM - 9:00 PM",
+                established: "2008",
+                address: "Nanded Main Dojo Address",
+                // subBranches: [
+                //     { name: "Nanded East Dojo", instructor: "Sensei Arjun Singh (3rd Dan)", contact: "+91 98765 43213", address: "Nanded East" },
+                //     { name: "Nanded Youth Club", instructor: "Sensei Meera Patel (2nd Dan)", contact: "+91 87654 32114", address: "Nanded Youth Club" },
+                //     { name: "Nanded University Dojo", instructor: "Sensei Vikram Desai (2nd Dan)", contact: "+91 76543 21015", address: "Nanded University" }
+                // ]
+            },
+            dhule: {
+                name: "Dhule Branch",
+                location: "Dhule, Maharashtra",
+                chiefInstructor: "Sensei Anil Patil (3rd Dan Black Belt)",
+                contact: "+91 95432 10987",
+                trainingHours: "Morning: 6:00 AM - 7:00 AM, 7:00 AM - 8:00 AM, 8:00 AM - 9:00 AM,<br>Evening: 4:00 PM - 5:00 PM, 5:00 PM - 6:00 PM, 6:00 PM - 7:00 PM,<br> 7:00 PM - 8:00 PM, 8:00 PM - 9:00 PM",
+                established: "2012",
+                address: "Dhule Main Dojo Address",
+                // subBranches: [
+                //     { name: "Dhule Central Dojo", instructor: "Sensei Rahul Sharma (2nd Dan)", contact: "+91 98765 43216", address: "Dhule Central" },
+                //     { name: "Dhule North Dojo", instructor: "Sensei Priyanka Joshi (1st Dan)", contact: "+91 87654 32117", address: "Dhule North" }
+                // ]
+            },
+            belagavi: {
+                name: "Belagavi Branch",
+                location: "Belagavi, Karnataka",
+                chiefInstructor: "Sensei Prakash Naik (4th Dan Black Belt)",
+                contact: "+91 94321 09876",
+                trainingHours: "Morning: 6:00 AM - 7:00 AM, 7:00 AM - 8:00 AM, 8:00 AM - 9:00 AM,<br>Evening: 4:00 PM - 5:00 PM, 5:00 PM - 6:00 PM, 6:00 PM - 7:00 PM,<br> 7:00 PM - 8:00 PM, 8:00 PM - 9:00 PM",
+                established: "2010",
+                address: "Belagavi Main Dojo Address",
+                // subBranches: [
+                //     { name: "Belagavi City Dojo", instructor: "Sensei Ramesh Kumar (3rd Dan)", contact: "+91 98765 43218", address: "Belagavi City" },
+                //     { name: "Belagavi Sports Center", instructor: "Sensei Sunita Rao (2nd Dan)", contact: "+91 87654 32119", address: "Belagavi Sports Center" },
+                //     { name: "Belagavi University Dojo", instructor: "Sensei Arun Deshpande (2nd Dan)", contact: "+91 76543 21020", address: "Belagavi University" }
+                // ]
+            }
+        };
+
+        // Get branch from URL parameter
+        function getBranchFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('branch') || 'satara'; // Default to 'satara' if no branch specified
+        }
+
+        // Create sub-branch card
+        function createSubBranchCard(subBranch) {
+            return `
+            <div class="sub-branch-card">
+                <div class="sub-branch-card-header">
+                    <h5>${subBranch.name}</h5>
+                </div>
+                <div class="sub-branch-card-body">
+                    <div class="sub-branch-detail">
+                        <h6><i class="fas fa-user-tie"></i> Instructor</h6>
+                        <p>${subBranch.instructor}</p>
+                    </div>
+                    <div class="sub-branch-detail">
+                        <h6><i class="fas fa-phone-alt"></i> Contact</h6>
+                        <p>${subBranch.contact}</p>
+                    </div>
+                    <div class="sub-branch-detail">
+                        <h6><i class="fas fa-map-marker-alt"></i> Address</h6>
+                        <p>${subBranch.address}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+        // Load branch data
+        function loadBranchData() {
+            const branchId = getBranchFromUrl();
+            const container = document.getElementById('sub-branches-container');
+
+            if (branchData[branchId]) {
+                const branch = branchData[branchId];
+
+                // Update page title
+                document.title = `JKA Satara - ${branch.name}`;
+
+                // Update branch info
+                document.getElementById('branch-title').textContent = branch.name;
+                document.getElementById('branch-subtitle').textContent = branch.location;
+                document.getElementById('branch-name').textContent = branch.name;
+                document.getElementById('branch-location').textContent = branch.location;
+                document.getElementById('chief-instructor').innerHTML = branch.chiefInstructor;
+                document.getElementById('branch-contact').innerHTML = branch.contact;
+                document.getElementById('training-hours').innerHTML = branch.trainingHours;
+                document.getElementById('established-year').textContent = branch.established;
+
+                // Update sub-branches
+                if (branch.subBranches.length > 0) {
+                    let cardsHTML = '<div class="sub-branch-grid">';
+                    branch.subBranches.forEach(subBranch => {
+                        cardsHTML += createSubBranchCard(subBranch);
+                    });
+                    cardsHTML += '</div>';
+                    container.innerHTML = cardsHTML;
+                } else {
+                    container.innerHTML = `
+                    <div class="no-sub-branches">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h5>No Sub-Branches Available</h5>
+                        <p>This branch currently doesn't have any sub-branches</p>
+                    </div>
+                `;
+                }
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            loadBranchData();
+
+            // Add event listener for dropdown menu items
+            document.querySelectorAll('.dropdown-menu a').forEach(item => {
+                item.addEventListener('click', function () {
+                    setTimeout(loadBranchData, 100); // Small delay to allow URL to update
+                });
+            });
+        });
+
+        // Re-load data when URL changes (for back/forward navigation)
+        window.addEventListener('popstate', loadBranchData);
+    </script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            // Back to Top Button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

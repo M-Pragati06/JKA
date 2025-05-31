@@ -1,0 +1,137 @@
+{
+  "galleryItems": [
+    {
+      "type": "image",
+      "src": "gallery_images/1.jpg",
+      "title": "2016 Goa National",
+      "category": "Training"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/2.jpg",
+      "title": "2001",
+      "category": "Training"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/3.jpg",
+      "title": "15, 16 & 17 August 2015 National Training Camp",
+      "category": "Training"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/4.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/5.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/6.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/7.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/8.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/9.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/10.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/11.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/12.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/13.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/14.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/15.jpg",
+      "title": "Karate Training 2017",
+      "category": "Nanded"
+    },
+    {
+      "type": "image",
+      "src": "gallery_images/16.jpg",
+      "title": "JKA Satara Training Camp and Black Belt Exam 2012",
+      "category": "Satara"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/1.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/2.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/3.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/4.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/5.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    },
+    {
+      "type": "video",
+      "src": "gallery_videos/6.mp4",
+      "title": "Training Session",
+      "category": "Training"
+    }
+    
+  ]
+}

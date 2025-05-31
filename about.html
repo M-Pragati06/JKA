@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About JKA Satara | Japan Karate Association</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About Hero Section */
+
+        body{
+            overflow-x: hidden;
+        }
+        /* Navbar Toggler Fix */
+        .navbar-toggler {
+            color: rgba(0, 0, 0, 0.8);
+            border-color: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.15);
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('gallery_images/22.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-top: 30px;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: -webkit-linear-gradient(#222222, #f72222);
+            background-clip: none;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mission and Vision Cards */
+        .mission-card,
+        .vision-card {
+            padding: 30px;
+            border-radius: 8px;
+            height: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card {
+            background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        .vision-card {
+            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+            background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        .mission-card:hover,
+        .vision-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* History Timeline */
+        .history-section {
+            background-color: #f8f9fa;
+        }
+
+        .history-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .history-timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Philosophy Cards */
+        .philosophy-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 100%;
+            background: white;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .philosophy-card .card-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .philosophy-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: rgba(255, 54, 7, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            color: goldenrod;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png') repeat;
+
+            opacity: 0.1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 120px 0 80px;
+            }
+
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .history-timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left,
+            .right {
+                text-align: left;
+            }
+
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .mission-card,
+            .vision-card {
+                padding: 20px;
+            }
+        }
+
+        /* Enhanced Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced History Timeline */
+        .history-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .history-timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .history-timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                margin-bottom: 20px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left,
+            .right {
+                text-align: left;
+                left: 0;
+            }
+
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .timeline-item {
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100" style="width: 100vw;">
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <nav class="navbar navbar-expand-xl fixed-top" style="width: 100vw;">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="text-decoration: none; display: inline-flex; align-items: center;">
+                <img src="images/logo.png" alt="JKA SATARA" style="height: 60px; width: auto;">
+                <div class="logo-text" style="margin-left: 12px; line-height: 1.2;">
+                    <div class="logo" style="font-size: 18px; font-weight: 700; color: #000;">JKA SATARA</div>
+                    <div style="font-size: 10px; font-weight: 500; color: #333;">公益社団法人</div>
+                    <div style="font-size: 14px; font-weight: 600; color: #666;">日本空手協会</div>
+                </div>
+            </a>
+            <!-- Updated Toggler Button -->
+            <button class="navbar-toggler border-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="branchesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
+                        <ul class="dropdown-menu" aria-labelledby="branchesDropdown">
+                            <li><a class="dropdown-item" href="branches.html?branch=satara">Satara</a></li>
+                            <li><a class="dropdown-item" href="branches.html?branch=karad">Karad</a></li>
+                            <li><a class="dropdown-item" href="branches.html?branch=nanded">Nanded</a></li>
+                            <li><a class="dropdown-item" href="branches.html?branch=dhule">Dhule</a></li>
+                            <li><a class="dropdown-item" href="branches.html?branch=belagavi">Belagavi</a></li>
+                            <li><a class="dropdown-item bg-warning" href="Schools.html">Schools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#news_and_events">News and Events</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Admission</a>
+                        <ul class="dropdown-menu" aria-labelledby="admissionDropdown">
+                            <li><a class="dropdown-item" href="admission.html">New Admission Form</a></li>
+                            <li><a class="dropdown-item" href="coming-soon.html">National Camp Form</a></li>
+                            <li><a class="dropdown-item" href="coming-soon.html">Exam Form</a></li>
+                            <li><a class="dropdown-item" href="coming-soon.html">Local Camp Form</a></li>
+                            <li><a class="dropdown-item" href="coming-soon.html">Zonal Tournament Form</a></li>
+                            <li><a class="dropdown-item" href="coming-soon.html">Dojo Affiliation Form</a></li>
+                            <li class="bg-warning"><a class="dropdown-item" href="images/syllabus.pdf"
+                                    target="_blank">Syllabus</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">About JKA Satara</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-1s fw-bold">Preserving the tradition of authentic
+                Shotokan Karate since 2001</p>
+
+            <nav aria-label="breadcrumb" class="animate__animated animate__fadeIn animate__delay-1s">
+                <ol class="breadcrumb justify-content-center fw-bold">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active text-warning" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-start">
+                        <h2>Japan Karate Association Satara</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <p>JKA Satara is an official branch of the Japan Karate Association, the world's most prestigious
+                        karate organization. Founded in 2001, we have been dedicated to preserving and teaching
+                        authentic Shotokan Karate as developed by Master Gichin Funakoshi, the father of modern karate.
+                    </p>
+                    <p>Our dojo follows the traditional teachings while incorporating modern training methodologies to
+                        help students of all ages and abilities achieve their full potential. Over the years, we've
+                        trained thousands of students, producing national and international champions while maintaining
+                        our core philosophy of character development through martial arts.</p>
+                    <div class="about-features mt-4">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div>
+                                <h4>Certified Instructors</h4>
+                                <p>All our instructors are JKA certified with decades of combined experience.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4>Proven Results</h4>
+                                <p>Over 50 national champions trained at our dojo in the past decade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="images/about.png" alt="JKA Satara Dojo" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Vision Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="mission-card p-4 h-100">
+                        <h3><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
+                        <p>To provide authentic Shotokan Karate training that develops not just physical skills but also
+                            cultivates discipline, respect, and personal growth in every student. We aim to preserve the
+                            traditional values of karate while making it accessible to the modern practitioner.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="vision-card p-4 h-100">
+                        <h3><i class="fas fa-eye me-2"></i>Our Vision</h3>
+                        <p>To be recognized as a center of excellence for martial arts training in Maharashtra,
+                            producing well-rounded individuals who embody the spirit of karate in their daily lives. We
+                            strive to expand our reach while maintaining the highest standards of instruction and
+                            integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section class="history-section section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our History</h2>
+                <p>Journey of JKA Satara through the years</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="history-timeline">
+                <div class="timeline-item left animate__animated animate__fadeInLeft">
+                    <div class="timeline-content">
+                        <h3>2001</h3>
+                        <p>JKA Satara was established as the first official Japan Karate Association branch in the
+                            region, founded by Sensei Virendra Pardeshi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right animate__animated animate__fadeInRight">
+                    <div class="timeline-content">
+                        <h3>2004</h3>
+                        <p>Our first student won a gold medal at the National Karate Championship, putting JKA Satara on
+                            the national map.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left animate__animated animate__fadeInLeft">
+                    <div class="timeline-content">
+                        <h3>2008</h3>
+                        <p>Moved to our current 5000 sq.ft. facility with state-of-the-art training equipment and
+                            dedicated spaces for different age groups.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right animate__animated animate__fadeInRight">
+                    <div class="timeline-content">
+                        <h3>2010</h3>
+                        <p>Celebrated our 10th anniversary with a special seminar featuring JKA Japan Chief Instructor
+                            Anand Ratna.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left animate__animated animate__fadeInLeft">
+                    <div class="timeline-content">
+                        <h3>2016</h3>
+                        <p>Launched our youth development program which has since trained over 500 children in karate
+                            and life skills.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right animate__animated animate__fadeInRight">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Recognized as "Best Karate Dojo in Maharashtra" by the Maharashtra Martial Arts Association.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Philosophy Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Training Philosophy</h2>
+                <p>The JKA Satara approach to martial arts education</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="philosophy-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-shield"></i>
+                            <h3>Character Development</h3>
+                            <p>We believe karate is a way of life that builds discipline, respect, and perseverance that
+                                extends beyond the dojo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="philosophy-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3>Technical Excellence</h3>
+                            <p>Our training emphasizes perfecting the fundamental techniques of Shotokan Karate as
+                                taught by JKA Japan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="philosophy-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-heartbeat"></i>
+                            <h3>Holistic Approach</h3>
+                            <p>We develop the whole person - physical fitness, mental focus, and spiritual growth
+                                through traditional training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section text-white text-center">
+        <div class="container">
+            <h2 class="mb-4">Begin Your Karate Journey Today</h2>
+            <p class="mb-5">Whether you're looking for self-defense skills, physical fitness, or personal development,
+                JKA Satara offers a welcoming environment for students of all ages and abilities.</p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg me-3">Contact Us</a>
+            <a href="admission.html" class="btn btn-outline-warning btn-lg">Join Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>About Us</h3>
+                        <p>JKA Satara has been providing authentic Shotokan Karate training since 2001. As an official
+                            branch of the Japan Karate Association, we maintain the highest standards of instruction.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/virendra.pardeshi.96?mibextid=ZbWKwL" target="_blank"
+                                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://wa.me/919822026371"><i class="fab fa-whatsapp" target="_blank"
+                                    rel="noopener noreferrer"></i></a>
+                            <a href="https://www.instagram.com/virendra.pardeshi?igsh=MTBmNzduaGR3eGNiag=="
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/virendra-pardeshi-1596481ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="branches.html">Branches</a></li>
+                            <li><a href="index.html#gallery">Gallery</a></li>
+                            <li><a href="index.html#news_and_events">News & Events</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <div class="footer-col">
+                        <h3>Main Branches</h3>
+                        <ul class="footer-links">
+                            <li><a href="branches.html?branch=satara">Satara</a></li>
+                            <li><a href="branches.html?branch=karad">karad</a></li>
+                            <li><a href="branches.html?branch=nanded">Nanded</a></li>
+                            <li><a href="branches.html?branch=dhule">Dhule</a></li>
+                            <li><a href="branches.html?branch=belagavi">Belagavi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-col">
+                        <h3>Contact Info</h3>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i>Japan Karate Association Satara<br>
+                                Dojo Main Branch<br>
+                                313/6, Plot no: 3, 97, Basappa Peth<br>
+                                New Radhika Road<br>
+                                Satara - 415002<br>
+                                Maharashtra, India</li>
+                            <li><i class="fas fa-phone-alt"></i><a href="tel:+919822026371">+91 98220 26371</a></li>
+                            <li><i class="fas fa-envelope"></i><a
+                                    href="mailto:virendrapardeshi999@gmail.com">virendrapardeshi999@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2025 Japan Karate Association Satara. All Rights Reserved.</p>
+                        <p>Designed by : <a href="http://jijausoftwares.in/" target="_blank">Jijau Softwares</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to Top Button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
